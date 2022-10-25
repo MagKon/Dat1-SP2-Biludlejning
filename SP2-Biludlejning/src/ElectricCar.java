@@ -18,7 +18,7 @@ public class ElectricCar extends ACar {
     }
 
     public int getWhPrKm() {
-        return batteryCapacity / maxRange;
+        return maxRange / batteryCapacity;
     }
 
     @Override

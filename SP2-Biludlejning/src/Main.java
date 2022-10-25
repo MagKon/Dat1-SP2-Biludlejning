@@ -24,6 +24,8 @@ public class Main {
         fleet.addCar(elec3);
 
         System.out.println(fleet);
+
+        System.out.println(fleet.fleet.get(6).getRegistrationFee());
         System.out.println("Total registration fee for fleet: " + fleet.getTotalRegistrationFeeForFleet() + " kr.");
     }
 }
