@@ -9,16 +9,16 @@ public class ElectricCar extends ACar {
 
     }
 
-    public int getBatteryCapacity() {
+    public int getBatteryCapacityKWh() {
         return batteryCapacity;
     }
 
-    public int getMaxRange() {
+    public int getMaxRangeKm() {
         return maxRange;
     }
 
     public int getWhPrKm() {
-        return maxRange / batteryCapacity;
+        return (batteryCapacity*1000) / maxRange;
     }
 
     @Override
@@ -43,17 +43,15 @@ public class ElectricCar extends ACar {
 
     @Override
     public int getRegistrationFee() {
-        int fee = 0;
+        double lPrHundredKm = getWhPrKm()/91.25;
 
-        fee += getWhPrKm()/91.25;
+         int kmPrl = (int) Math.round(100/lPrHundredKm);
 
-        fee /= 100;
-
-        return fee;
+        return kmPrl;
     }
 
     @Override
     public String toString() {
-        return super.toString() + String.format(" %d %d %d", getBatteryCapacity(), getMaxRange(), getWhPrKm());
+        return super.toString() + String.format(" %d %d %d", getBatteryCapacityKWh(), getMaxRangeKm(), getWhPrKm());
     }
 }
