@@ -1,8 +1,8 @@
 public class DieselCar extends AFuelCar {
-    private boolean particleFilter;
+    private final boolean particleFilter;
 
-    public DieselCar(boolean particleFilter, int kmPrLitre) {
-        super(kmPrLitre);
+    public DieselCar(String registrationNumber, String make, String model, int numberOfDoors, int kmPrLitre, boolean particleFilter) {
+        super(registrationNumber, make, model, numberOfDoors, kmPrLitre);
         this.particleFilter = particleFilter;
     }
 
@@ -10,33 +10,66 @@ public class DieselCar extends AFuelCar {
         return particleFilter;
     }
 
+    @Override
+    public String getFuelType() {
+        return "Diesel";
+    }
+
+    @Override
     public int getRegistrationFee() {
         int fee = 0;
-//        if (getKmPrLitre() < 20) {
-//            fee += 1000;
-//        } else if (getKmPrLitre() < 50) {
-//            fee += 2000;
-//        } else {
-//            fee += 3000;
-//        }
-//        if (hasParticleFilter()) {
-//            fee += 500;
-//        }
+
+        if (getKmPrLitre() >= 20 && getKmPrLitre() < 50) {
+            fee += 330; //add base fee
+            fee += 130; //add fee for equalization tax
+        }
+        else if (getKmPrLitre() >= 15 && getKmPrLitre() < 20) {
+            fee += 1050; //add base fee
+            fee += 1390; //add fee for equalization tax
+        }
+        else if (getKmPrLitre() >= 10 && getKmPrLitre() < 15) {
+            fee += 2340; //add base fee
+            fee += 1850; //add fee for equalization tax
+        }
+        else if (getKmPrLitre() >= 5 && getKmPrLitre() < 10) {
+            fee += 5500; //add base fee
+            fee += 2770; //add fee for equalization tax
+        }
+        else if (getKmPrLitre() < 5){
+            fee += 10470; //add base fee
+            fee += 15260; //add fee for equalization tax
+        }
+        else
+            return 0;
+
+        if (!hasParticleFilter())
+            fee += 1000;
+
         return fee;
     }
 
     @Override
+    public String getRegistrationNumber() {
+        return super.registrationNumber;
+    }
+
+    @Override
+    public String getMake() {
+        return super.make;
+    }
+
+    @Override
+    public String getModel() {
+        return super.model;
+    }
+
+    @Override
+    public int getNumberOfDoors() {
+        return super.numberOfDoors;
+    }
+
+    @Override
     public String toString() {
-        return String.format("%s %s %d", getFuelType(), hasParticleFilter() ? "with" : "without", getKmPrLitre());
-    }
-
-    @Override
-    public String getFuelType() {
-        return null;
-    }
-
-    @Override
-    public int getKmPrLitre() {
-        return 0;
+        return super.toString() + String.format(" %s %s %d", getFuelType(), hasParticleFilter() ? "(with filter)" : "(without filter)", getKmPrLitre());
     }
 }

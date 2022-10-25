@@ -24,7 +24,7 @@ public class FleetOfCars {
         StringBuilder result = new StringBuilder();
 
         for (Car car : fleet) {
-            result.append(car.toString()).append(" ");
+            result.append(car.toString()).append(" \n");
         }
 
         return result.toString();

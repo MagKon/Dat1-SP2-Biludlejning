@@ -9,28 +9,51 @@ public class ElectricCar extends ACar {
 
     }
 
+    public int getBatteryCapacity() {
+        return batteryCapacity;
+    }
+
+    public int getMaxRange() {
+        return maxRange;
+    }
+
+    public int getWhPrKm() {
+        return batteryCapacity / maxRange;
+    }
+
     @Override
     public String getRegistrationNumber() {
-        return null;
+        return super.registrationNumber;
     }
 
     @Override
     public String getMake() {
-        return null;
+        return super.make;
     }
 
     @Override
     public String getModel() {
-        return null;
+        return super.model;
     }
 
     @Override
     public int getNumberOfDoors() {
-        return 0;
+        return super.numberOfDoors;
     }
 
     @Override
     public int getRegistrationFee() {
-        return 0;
+        int fee = 0;
+
+        fee += getWhPrKm()/91.25;
+
+        fee /= 100;
+
+        return fee;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" %d %d %d", getBatteryCapacity(), getMaxRange(), getWhPrKm());
     }
 }
