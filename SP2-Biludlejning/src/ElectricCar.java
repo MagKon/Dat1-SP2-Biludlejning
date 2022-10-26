@@ -45,9 +45,20 @@ public class ElectricCar extends ACar {
     public int getRegistrationFee() {
         double lPrHundredKm = getWhPrKm()/91.25;
 
-         int kmPrl = (int) Math.round(100/lPrHundredKm);
+         int kmPrL = (int) Math.round(100/lPrHundredKm);
 
-        return kmPrl;
+        if (kmPrL >= 20 && kmPrL < 50)
+            return 330;
+        else if (kmPrL >= 15 && kmPrL < 20)
+            return 1050;
+        else if (kmPrL >= 10 && kmPrL < 15)
+            return 2340;
+        else if (kmPrL >= 5 && kmPrL < 10)
+            return 5500;
+        else if (kmPrL < 5)
+            return 10470;
+        else
+            return 0;
     }
 
     @Override
