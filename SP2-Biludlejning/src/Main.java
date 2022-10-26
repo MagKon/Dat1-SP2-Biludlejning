@@ -8,8 +8,8 @@ public class Main {
         Car dies2 = new DieselCar("IJ 90 123", "Volvo", "383", 5, 50, false);
         Car dies3 = new DieselCar("KL 12 345", "Toyota", "Land Cruiser", 7, 29, true);
 
-        Car elec1 = new ElectricCar("GH 78 901", "Tesla", "Model S", 5, 85, 502);
-        Car elec2 = new ElectricCar("IJ 90 123", "Tesla", "Model X", 5, 90, 543);
+        Car elec1 = new ElectricCar("GH 78 901", "Tesla", "Model S", 5, 100, 502);
+        Car elec2 = new ElectricCar("IJ 90 123", "Tesla", "Model X", 5, 105, 543);
         Car elec3 = new ElectricCar("KL 12 345", "BMW", "i3", 3, 38, 203);
 
         FleetOfCars fleet = new FleetOfCars();
@@ -24,8 +24,7 @@ public class Main {
         fleet.addCar(elec3);
 
         System.out.println(fleet);
-
-        System.out.println(fleet.fleet.get(6).getRegistrationFee());
+        
         System.out.println("Total registration fee for fleet: " + fleet.getTotalRegistrationFeeForFleet() + " kr.");
     }
 }

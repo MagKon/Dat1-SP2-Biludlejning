@@ -70,6 +70,6 @@ public class DieselCar extends AFuelCar {
 
     @Override
     public String toString() {
-        return super.toString() + String.format(" %s %s %d", getFuelType(), hasParticleFilter() ? "(with filter)" : "(without filter)", getKmPrLitre());
+        return super.toString() + String.format(", Fuel type: %s %s, km/l %d", getFuelType(), hasParticleFilter() ? "(with filter)" : "(without filter)", getKmPrLitre());
     }
 }

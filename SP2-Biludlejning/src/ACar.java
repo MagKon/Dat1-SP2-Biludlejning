@@ -21,6 +21,6 @@ public abstract class ACar implements Car {
 
     @Override
     public String toString() {
-        return String.format("%s %s %s %d", getRegistrationNumber(), getMake(), getModel(), getNumberOfDoors());
+        return String.format("Registration: %s, Make: %s, Model: %s, Number of Doors: %d", getRegistrationNumber(), getMake(), getModel(), getNumberOfDoors());
     }
 }
