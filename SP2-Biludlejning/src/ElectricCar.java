@@ -58,7 +58,7 @@ public class ElectricCar extends ACar {
         else if (kmPrL < 5)
             return 10470;
         else
-            return 0;
+            return 330; //default unless otherwise specified
     }
 
     @Override

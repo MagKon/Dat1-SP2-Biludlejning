@@ -40,7 +40,7 @@ public class DieselCar extends AFuelCar {
             fee += 15260; //add fee for equalization tax
         }
         else
-            return 0;
+            fee += 330 + 130; //add base fee and equalization tax as default unless otherwise specified
 
         if (!hasParticleFilter())
             fee += 1000;
