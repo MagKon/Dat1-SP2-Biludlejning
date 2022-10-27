@@ -18,6 +18,10 @@ public class FleetOfCars {
         return total;
     }
 
+    public ArrayList<Car> getFleet() {
+        return fleet;
+    }
+
     @Override
     public String toString() {
 

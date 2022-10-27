@@ -25,7 +25,7 @@ public class Main {
 
         System.out.println(fleet);
 //      Function for testing data
-//        for (Car car : fleet.fleet) {
+//        for (Car car : fleet.getFleet()) {
 //            System.out.println(car.getRegistrationFee());
 //        }
 
